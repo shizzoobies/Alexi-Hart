@@ -3,9 +3,62 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="Members | Alexi Hart">
-  <h1 class="text-3xl">Members</h1>
-  <p class="mt-4">
-    Phase 2 hooks signup, double opt-in, and gated content here. Today this page
-    is a placeholder so navigation resolves.
-  </p>
+  <!-- Hero offer -->
+  <section class="py-xl">
+    <div class="max-w-container-max mx-auto px-md grid grid-cols-1 md:grid-cols-12 gap-xl items-center">
+      <div class="md:col-span-7 space-y-md">
+        <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Free for Subscribers</span>
+        <h1 class="font-headline-xl text-headline-xl text-primary">Get the bonus story that started it all.</h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant">
+          Join the reader list to unlock an exclusive prequel novella, plus deleted scenes, sneak peeks, and a monthly note from my desk. No spam, just love letters.
+        </p>
+        <form class="flex flex-col gap-sm mt-md max-w-md">
+          <input class="w-full px-md py-md rounded-lg bg-surface-container-lowest border border-outline-variant text-on-surface focus:border-primary focus:ring-2 focus:ring-primary/20 placeholder:text-on-surface-variant/60 transition-all" placeholder="Your name" type="text" />
+          <input class="w-full px-md py-md rounded-lg bg-surface-container-lowest border border-outline-variant text-on-surface focus:border-primary focus:ring-2 focus:ring-primary/20 placeholder:text-on-surface-variant/60 transition-all" placeholder="Email address" type="email" />
+          <button class="mt-sm bg-primary text-on-primary py-md px-lg rounded-lg font-label-sm text-label-sm uppercase tracking-widest hover:opacity-90 transition-all shadow-md" type="submit">
+            Claim My Free Story
+          </button>
+        </form>
+        <div class="flex items-center gap-sm opacity-60 pt-sm">
+          <span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1; font-size: 18px;">verified_user</span>
+          <span class="font-label-sm text-label-sm">Unsubscribe any time.</span>
+        </div>
+      </div>
+      <div class="md:col-span-5 flex justify-center">
+        <div class="relative group">
+          <div class="absolute -inset-4 bg-secondary-fixed/40 rounded-xl blur-2xl"></div>
+          <div class="relative w-[260px] h-[390px] rounded-lg shadow-2xl border border-outline-variant/30 bg-gradient-to-br from-secondary-fixed-dim via-primary-container to-primary flex items-center justify-center">
+            <div class="text-center px-md">
+              <p class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary opacity-70 mb-sm">Bonus Novella</p>
+              <h2 class="font-headline-lg text-headline-lg text-on-primary italic">For My Readers</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why subscribe -->
+  <section class="py-xl bg-surface-container-low">
+    <div class="max-w-container-max mx-auto px-md">
+      <h2 class="font-headline-lg text-headline-lg text-primary text-center mb-lg">What you'll get</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+        <div class="bg-surface p-md rounded-xl shadow-sm border border-outline-variant/20 space-y-sm">
+          <span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+          <h3 class="font-headline-md text-headline-md">Bonus Scenes</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant">Deleted chapters, alternate endings, and the bits that didn't make the final draft.</p>
+        </div>
+        <div class="bg-surface p-md rounded-xl shadow-sm border border-outline-variant/20 space-y-sm">
+          <span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">event</span>
+          <h3 class="font-headline-md text-headline-md">Early Access</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant">Cover reveals, release dates, and chapter ones before anyone else.</p>
+        </div>
+        <div class="bg-surface p-md rounded-xl shadow-sm border border-outline-variant/20 space-y-sm">
+          <span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">card_giftcard</span>
+          <h3 class="font-headline-md text-headline-md">Reader Giveaways</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant">Signed copies, custom bookmarks, and the occasional surprise just for subscribers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 </BaseLayout>

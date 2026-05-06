@@ -13,8 +13,15 @@ const { Content } = await post.render();
 ---
 
 <BaseLayout title={`${post.data.title} | Alexi Hart`} description={post.data.excerpt}>
-  <article class="prose">
-    <h1 class="text-3xl">{post.data.title}</h1>
-    <Content />
-  </article>
+  <section class="py-xl">
+    <article class="max-w-3xl mx-auto px-md prose prose-lg">
+      {post.data.publishedAt ? (
+        <p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mb-sm not-prose">
+          {new Date(post.data.publishedAt).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
+        </p>
+      ) : null}
+      <h1 class="font-headline-xl text-headline-xl text-primary mb-lg">{post.data.title}</h1>
+      <Content />
+    </article>
+  </section>
 </BaseLayout>

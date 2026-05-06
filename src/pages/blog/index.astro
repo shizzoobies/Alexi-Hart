@@ -9,13 +9,29 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <BaseLayout title="Blog | Alexi Hart">
-  <h1 class="text-3xl">Blog</h1>
-  <ul class="mt-6 space-y-4">
-    {posts.map((p) => (
-      <li>
-        <a href={`${base}/blog/${p.slug}`} class="text-accent underline">{p.data.title}</a>
-        {p.data.excerpt ? <p class="text-sm text-muted">{p.data.excerpt}</p> : null}
-      </li>
-    ))}
-  </ul>
+  <section class="py-xl">
+    <div class="max-w-container-max mx-auto px-md">
+      <div class="text-center mb-lg space-y-sm">
+        <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">From the Desk</span>
+        <h1 class="font-headline-xl text-headline-xl text-primary">Blog</h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto italic">Notes, tea, and the slow craft of writing romance.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-md mt-lg">
+        {posts.map((p) => (
+          <a href={`${base}/blog/${p.slug}`} class="bg-surface p-md rounded-xl shadow-sm border border-outline-variant/20 hover:border-primary/40 hover:shadow-md transition-all block">
+            {p.data.publishedAt ? (
+              <p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mb-sm">
+                {new Date(p.data.publishedAt).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
+              </p>
+            ) : null}
+            <h2 class="font-headline-md text-headline-md text-primary mb-sm">{p.data.title}</h2>
+            {p.data.excerpt ? <p class="font-body-md text-body-md text-on-surface-variant italic">{p.data.excerpt}</p> : null}
+            <p class="font-label-sm text-label-sm text-primary mt-md inline-flex items-center gap-2">
+              Read more <span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
+            </p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
 </BaseLayout>

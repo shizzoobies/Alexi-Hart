@@ -8,6 +8,7 @@ interface Props {
 }
 
 const { title, description = "Alexi Hart, contemporary romance" } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <!doctype html>
@@ -17,14 +18,50 @@ const { title, description = "Alexi Hart, contemporary romance" } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,600&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    />
   </head>
-  <body class="min-h-screen">
+  <body class="bg-background text-on-surface font-body-md antialiased">
     <Nav />
-    <main class="max-w-3xl mx-auto px-6 py-12">
+    <main>
       <slot />
     </main>
-    <footer class="max-w-3xl mx-auto px-6 py-8 text-sm text-muted">
-      &copy; {new Date().getFullYear()} Alexi Hart
+    <footer class="bg-surface-container-low border-t border-outline-variant/20 w-full">
+      <div class="flex flex-col md:flex-row justify-between items-center w-full max-w-container-max mx-auto px-md py-lg gap-md">
+        <div class="space-y-base text-center md:text-left">
+          <a class="font-headline-md text-headline-md italic text-primary" href={`${base}/`}>Alexi Hart</a>
+          <p class="font-body-md text-body-md text-on-surface-variant max-w-xs">
+            &copy; {new Date().getFullYear()} Alexi Hart. All rights reserved. Crafted for lovers of modern romance.
+          </p>
+        </div>
+        <div class="flex flex-col items-center md:items-end gap-sm">
+          <div class="flex gap-md">
+            <a class="text-on-surface-variant hover:text-primary transition-colors" href="#" aria-label="Instagram">
+              <span class="material-symbols-outlined">alternate_email</span>
+            </a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors" href="#" aria-label="Newsletter">
+              <span class="material-symbols-outlined">mail</span>
+            </a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors" href="#" aria-label="Favorites">
+              <span class="material-symbols-outlined">favorite</span>
+            </a>
+          </div>
+          <div class="flex flex-wrap justify-center gap-md pt-sm">
+            <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy</a>
+            <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Terms</a>
+            <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Press Kit</a>
+            <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href={`${base}/members`}>Mailing List</a>
+          </div>
+        </div>
+      </div>
     </footer>
   </body>
 </html>

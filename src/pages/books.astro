@@ -1,8 +1,55 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
+
+const series = [
+  {
+    name: "The Letters Series",
+    status: "In Progress",
+    books: [
+      { title: "Love Notes in the Margin", subtitle: "Book One", year: "2026", available: true },
+      { title: "Letters to the Lighthouse", subtitle: "Book Two", year: "Coming 2027", available: false }
+    ]
+  },
+  {
+    name: "Standalones",
+    status: "Available",
+    books: [
+      { title: "The Coffee Shop on Maple", subtitle: "Standalone", year: "2025", available: true }
+    ]
+  }
+];
 ---
 
 <BaseLayout title="Books | Alexi Hart">
-  <h1 class="text-3xl">Books</h1>
-  <p class="mt-4 text-muted">Catalog goes here. Phase 2 wires this to the API.</p>
+  <section class="py-xl">
+    <div class="max-w-container-max mx-auto px-md">
+      <div class="text-center mb-lg space-y-sm">
+        <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">The Catalog</span>
+        <h1 class="font-headline-xl text-headline-xl text-primary">Books</h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto italic">"Every story is a door. Step through and stay a while."</p>
+      </div>
+      <div class="space-y-xl mt-lg">
+        {series.map((s) => (
+          <div class="space-y-md">
+            <div class="flex items-center gap-sm flex-wrap">
+              <h2 class="font-headline-lg text-headline-lg text-primary">{s.name}</h2>
+              <div class="h-px flex-grow bg-outline-variant min-w-[40px]"></div>
+              <span class="bg-secondary-container text-on-secondary-container px-md py-xs rounded-full font-label-sm text-label-sm uppercase tracking-wider">{s.status}</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+              {s.books.map((b) => (
+                <div class:list={["bg-surface p-md rounded-xl shadow-sm border border-outline-variant/20 flex items-center justify-between gap-md transition-all", b.available ? "hover:border-primary/40 hover:shadow-md cursor-pointer" : "opacity-60"]}>
+                  <div>
+                    <h3 class="font-headline-md text-headline-md text-on-surface">{b.title}</h3>
+                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-xs">{b.subtitle} • {b.year}</p>
+                  </div>
+                  <span class="material-symbols-outlined text-primary">{b.available ? "auto_stories" : "lock"}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 </BaseLayout>

@@ -9,11 +9,16 @@ const links = [
 ];
 ---
 
-<nav class="max-w-3xl mx-auto px-6 py-6 flex items-center justify-between">
-  <a href={`${base}/`} class="font-display text-xl">Alexi Hart</a>
-  <ul class="flex gap-6 text-sm">
-    {links.slice(1).map((l) => (
-      <li><a href={l.href} class="hover:text-accent">{l.label}</a></li>
-    ))}
-  </ul>
-</nav>
+<header class="bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 top-0 sticky z-50 shadow-sm shadow-on-surface/5">
+  <nav class="flex justify-between items-center w-full max-w-container-max mx-auto px-md py-sm">
+    <a class="font-headline-md text-headline-md italic text-primary hover:opacity-80 transition-all duration-300" href={`${base}/`}>Alexi Hart</a>
+    <div class="hidden md:flex items-center gap-lg">
+      {links.slice(1).map((l) => (
+        <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href={l.href}>{l.label}</a>
+      ))}
+    </div>
+    <a href={`${base}/members`} class="bg-primary text-on-primary px-md py-sm rounded-lg font-label-sm text-label-sm hover:opacity-80 transition-all duration-300">
+      Join the List
+    </a>
+  </nav>
+</header>

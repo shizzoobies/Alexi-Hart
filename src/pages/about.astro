@@ -3,6 +3,25 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="About | Alexi Hart">
-  <h1 class="text-3xl">About</h1>
-  <p class="mt-4">Bio placeholder.</p>
+  <section class="py-xl">
+    <div class="max-w-container-max mx-auto px-md">
+      <div class="flex flex-col md:flex-row gap-xl items-center">
+        <div class="md:w-1/2">
+          <div class="rounded-xl shadow-lg border-4 border-surface w-full aspect-[4/5] bg-gradient-to-br from-secondary-fixed via-surface-container-low to-secondary-fixed-dim flex items-center justify-center">
+            <span class="material-symbols-outlined text-primary opacity-30" style="font-size: 96px;">local_florist</span>
+          </div>
+        </div>
+        <div class="md:w-1/2 space-y-md">
+          <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">A Note from Alexi</span>
+          <h1 class="font-headline-xl text-headline-xl text-primary">Hello, friend.</h1>
+          <div class="space-y-sm font-body-md text-body-md text-on-surface-variant">
+            <p>I'm Alexi, and I believe that everyone deserves a happy ending, even if the road there is a little bumpy. I've been writing since I could hold a pen, but it wasn't until I moved to a small cottage that I truly found my voice.</p>
+            <p>When I'm not dreaming up new ways for my characters to fall in love, you can find me scouring antique bookstores, nursing a large cup of Earl Grey, or trying (and failing) to bake the perfect macaron.</p>
+            <p>My stories are inspired by the small moments: a shared glance across a crowded room, the smell of rain on pavement, and the quiet comfort of a long-term friendship. I'm so glad you're here to share them with me.</p>
+          </div>
+          <p class="font-headline-md text-headline-md italic text-primary pt-md">Alexi</p>
+        </div>
+      </div>
+    </div>
+  </section>
 </BaseLayout>

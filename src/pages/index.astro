@@ -1,16 +1,138 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <BaseLayout title="Alexi Hart">
-  <h1 class="text-4xl">Welcome.</h1>
-  <p class="mt-4 text-lg">
-    Contemporary romance, soft and sharp. New books, behind the scenes notes,
-    and bonus content for readers on the list.
-  </p>
-  <p class="mt-6">
-    <a href={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/members`} class="text-accent underline">
-      Join the reader list
-    </a>
-  </p>
+  <!-- Hero -->
+  <section class="relative min-h-[640px] flex items-center overflow-hidden py-xl">
+    <div class="absolute inset-0 z-0">
+      <div class="w-full h-full bg-gradient-to-br from-secondary-fixed via-surface to-secondary-fixed-dim opacity-60"></div>
+    </div>
+    <div class="relative z-10 w-full max-w-container-max mx-auto px-md flex flex-col md:flex-row items-center gap-xl">
+      <div class="flex-1 space-y-md">
+        <span class="inline-block bg-secondary-container text-on-secondary-container px-sm py-xs rounded-full font-label-sm text-label-sm uppercase tracking-wider">New Arrival</span>
+        <h1 class="font-headline-xl text-headline-xl text-primary max-w-lg">Love Notes in the Margin</h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
+          Sometimes the most beautiful stories are the ones written between the lines. A poignant contemporary romance about second chances and forgotten letters.
+        </p>
+        <div class="flex gap-md pt-base">
+          <a href={`${base}/books`} class="bg-primary text-on-primary px-lg py-md rounded-lg font-label-sm text-label-sm hover:opacity-90 transition-all shadow-md">Order Now</a>
+          <a href={`${base}/blog`} class="border-2 border-primary text-primary px-lg py-md rounded-lg font-label-sm text-label-sm hover:bg-primary/5 transition-all">Read Chapter One</a>
+        </div>
+      </div>
+      <div class="flex-1 flex justify-center">
+        <div class="relative group">
+          <div class="absolute -inset-4 bg-secondary-fixed/40 rounded-xl blur-2xl group-hover:bg-secondary-fixed/60 transition-all"></div>
+          <div class="relative w-[280px] h-[420px] md:w-[320px] md:h-[480px] rounded-lg shadow-2xl border border-outline-variant/30 bg-gradient-to-br from-secondary-fixed-dim via-primary-container to-primary flex items-center justify-center group-hover:-translate-y-2 transition-transform duration-500">
+            <div class="text-center px-md">
+              <p class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary opacity-70 mb-sm">Alexi Hart</p>
+              <h2 class="font-headline-lg text-headline-lg text-on-primary italic">Love Notes in the Margin</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Book Section -->
+  <section class="py-xl bg-surface-container-low scroll-mt-header" id="featured">
+    <div class="max-w-container-max mx-auto px-md">
+      <div class="grid md:grid-cols-12 gap-xl items-center">
+        <div class="md:col-span-5 order-2 md:order-1">
+          <div class="bg-surface p-md rounded-xl shadow-sm border border-outline-variant/20">
+            <h3 class="font-headline-md text-headline-md text-primary mb-sm">What Readers Are Saying</h3>
+            <div class="space-y-lg italic">
+              <blockquote class="border-l-4 border-secondary-container pl-md py-base">
+                <p class="font-body-md text-body-md text-on-surface-variant">"Alexi Hart has a way of weaving emotions into every page. I couldn't put it down."</p>
+                <footer class="font-label-sm text-label-sm text-secondary mt-sm not-italic">Literary Loft Reviews</footer>
+              </blockquote>
+              <blockquote class="border-l-4 border-secondary-container pl-md py-base">
+                <p class="font-body-md text-body-md text-on-surface-variant">"A masterpiece of modern romance. Tender, witty, and profoundly moving."</p>
+                <footer class="font-label-sm text-label-sm text-secondary mt-sm not-italic">Bookish Bliss</footer>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+        <div class="md:col-span-7 order-1 md:order-2 space-y-md">
+          <h2 class="font-headline-lg text-headline-lg text-primary">Discover the Heart of the Story</h2>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            When Clara finds a collection of old love letters tucked into the back of a library book, she never expected them to lead her to Julian, the reclusive architect who wrote them ten years ago. As they embark on a journey to find the letters' original recipient, they discover that their own story might just be the one worth writing.
+          </p>
+          <div class="flex flex-wrap gap-sm pt-sm">
+            <span class="bg-secondary-container/50 text-secondary px-sm py-xs rounded-full font-label-sm text-label-sm">Enemies to Lovers</span>
+            <span class="bg-secondary-container/50 text-secondary px-sm py-xs rounded-full font-label-sm text-label-sm">Found Family</span>
+            <span class="bg-secondary-container/50 text-secondary px-sm py-xs rounded-full font-label-sm text-label-sm">Slow Burn</span>
+          </div>
+          <div class="pt-lg flex items-center gap-md flex-wrap">
+            <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Available At</span>
+            <div class="flex gap-md opacity-60 flex-wrap">
+              <span class="font-headline-md text-headline-md">Amazon</span>
+              <span class="font-headline-md text-headline-md">B&amp;N</span>
+              <span class="font-headline-md text-headline-md">Apple</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Teaser -->
+  <section class="py-xl scroll-mt-header" id="about-teaser">
+    <div class="max-w-container-max mx-auto px-md">
+      <div class="flex flex-col md:flex-row gap-xl items-center">
+        <div class="md:w-1/2">
+          <div class="rounded-xl shadow-lg border-4 border-surface w-full aspect-[4/5] bg-gradient-to-br from-secondary-fixed via-surface-container-low to-secondary-fixed-dim flex items-center justify-center">
+            <span class="material-symbols-outlined text-primary opacity-30" style="font-size: 96px;">local_florist</span>
+          </div>
+        </div>
+        <div class="md:w-1/2 space-y-md">
+          <h2 class="font-headline-lg text-headline-lg text-primary">A Note from Alexi</h2>
+          <div class="space-y-sm font-body-md text-body-md text-on-surface-variant">
+            <p>Hello! I'm Alexi, and I believe that everyone deserves a happy ending, even if the road there is a little bumpy. I've been writing since I could hold a pen, but it wasn't until I moved to a small cottage that I truly found my voice.</p>
+            <p>When I'm not dreaming up new ways for my characters to fall in love, you can find me scouring antique bookstores, nursing a large cup of Earl Grey, or trying (and failing) to bake the perfect macaron.</p>
+          </div>
+          <a href={`${base}/about`} class="inline-flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all">
+            Read more <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="py-xl bg-primary text-on-primary" id="newsletter">
+    <div class="max-w-container-max mx-auto px-md text-center">
+      <div class="max-w-2xl mx-auto space-y-md">
+        <span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">mail</span>
+        <h2 class="font-headline-lg text-headline-lg">Join the Book Club</h2>
+        <p class="font-body-md text-body-md opacity-90">Sign up for my newsletter for exclusive sneak peeks, deleted scenes, and updates on new releases.</p>
+        <form class="flex flex-col sm:flex-row gap-sm pt-md" action={`${base}/members`} method="get">
+          <input class="flex-grow px-md py-sm rounded-lg border-none text-on-surface focus:ring-2 focus:ring-secondary-fixed" placeholder="Enter your email address" type="email" name="email" />
+          <button class="bg-secondary-fixed text-on-secondary-fixed px-lg py-sm rounded-lg font-label-sm text-label-sm hover:bg-secondary-fixed-dim transition-all" type="submit">Subscribe</button>
+        </form>
+        <p class="font-label-sm text-label-sm opacity-70">No spam, just love letters. Unsubscribe at any time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Feed Teaser -->
+  <section class="py-xl overflow-hidden">
+    <div class="max-w-container-max mx-auto px-md">
+      <div class="flex justify-between items-end mb-lg flex-wrap gap-md">
+        <div>
+          <h2 class="font-headline-md text-headline-md text-primary">The Writer's Life</h2>
+          <p class="font-body-md text-body-md text-on-surface-variant">Follow @AlexiHart for daily inspiration</p>
+        </div>
+        <a class="text-primary font-label-sm text-label-sm border-b border-primary pb-xs hover:opacity-70 transition-all" href="#">Follow on Instagram</a>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-md">
+        {[1, 2, 3, 4].map((i) => (
+          <div class="aspect-square rounded-lg bg-gradient-to-br from-secondary-fixed via-surface-container-low to-secondary-fixed-dim flex items-center justify-center">
+            <span class="material-symbols-outlined text-primary opacity-30" style="font-size: 48px;">photo_camera</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 </BaseLayout>
