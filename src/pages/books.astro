@@ -1,117 +1,88 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
+import catalog from "~/data/catalog.json";
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const seriesEntries = Object.entries(catalog.series ?? {});
 
-const series = {
-  name: "The Pelican Cove Series",
-  tagline: "Small town. Scorching heat. Absolutely no chill.",
-  blurb: "Five standalone rom-coms set in one Florida Gulf-coast town, where everyone knows whose truck is parked in front of whose house. Funny, filthy, and full of heart.",
-  status: "Complete",
-  books: [
-    {
-      number: 1,
-      title: "The Worst Idea Yet",
-      slug: "the-worst-idea-yet",
-      tagline: "She's been hired to save his bar. He'd rather let it burn than admit she's right.",
-      tropes: ["Enemies to Lovers", "Grumpy/Sunshine", "Forced Proximity"],
-      heat: 4
-    },
-    {
-      number: 2,
-      title: "Pretend You Love Me",
-      slug: "pretend-you-love-me",
-      tagline: "She needs a fake boyfriend. He needs a reason to stay. Neither of them planned the rest.",
-      tropes: ["Fake Dating", "Wedding Weekend", "Small Town Scandal"],
-      heat: 4
-    },
-    {
-      number: 3,
-      title: "The Wrong Brother",
-      slug: "the-wrong-brother",
-      tagline: "She left to stop wanting him. It didn't work.",
-      tropes: ["Brother's Best Friend", "Forbidden", "Slow Burn"],
-      heat: 5
-    },
-    {
-      number: 4,
-      title: "One More Chance to Ruin This",
-      slug: "one-more-chance-to-ruin-this",
-      tagline: "He was her first love and her worst heartbreak. He's back. So is everything else.",
-      tropes: ["Second Chance", "Exes with History", "Forced Proximity"],
-      heat: 5
-    },
-    {
-      number: 5,
-      title: "The Last Bad Decision",
-      slug: "the-last-bad-decision",
-      tagline: "She keeps saying no. He keeps showing up. Eventually, no becomes something else.",
-      tropes: ["Age Gap", "Slow Burn", "Forbidden by Self"],
-      heat: 5
-    }
-  ]
-};
+function fmtDate(s: string | undefined) {
+  if (!s) return "";
+  return new Date(s).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+}
 ---
 
 <BaseLayout title="Books | Alexi Hart">
-  <!-- Series Header -->
+  <!-- Hero -->
   <section class="py-xl bg-surface-container-low">
     <div class="max-w-container-max mx-auto px-md text-center space-y-sm">
       <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">The Catalog</span>
-      <h1 class="font-headline-xl text-headline-xl text-primary">{series.name}</h1>
-      <p class="font-body-lg text-body-lg italic text-on-surface-variant">{series.tagline}</p>
-      <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto pt-sm">{series.blurb}</p>
-      <div class="flex justify-center gap-sm pt-sm">
-        <span class="bg-secondary-container text-on-secondary-container px-md py-xs rounded-full font-label-sm text-label-sm uppercase tracking-widest">{series.status}</span>
-        <span class="bg-primary text-on-primary px-md py-xs rounded-full font-label-sm text-label-sm uppercase tracking-widest">5 Books</span>
-      </div>
+      <h1 class="font-headline-xl text-headline-xl text-primary">Books by Alexi Hart</h1>
+      <p class="font-body-lg text-body-lg italic text-on-surface-variant max-w-2xl mx-auto">{catalog.tagline}</p>
     </div>
   </section>
 
-  <!-- Books Grid -->
-  <section class="py-xl">
-    <div class="max-w-container-max mx-auto px-md">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-xl">
-        {series.books.map((b) => (
-          <article class="bg-surface rounded-xl shadow-sm border border-outline-variant/20 hover:border-primary/40 hover:shadow-lg transition-all overflow-hidden group">
-            <div class="aspect-[2/3] overflow-hidden bg-surface-container-low">
-              <img
-                src={`${base}/covers/${b.slug}.png`}
-                alt={`Cover of ${b.title}`}
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                loading="lazy"
-              />
-            </div>
-            <div class="p-md space-y-sm">
-              <p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Book {b.number}</p>
-              <h2 class="font-headline-md text-headline-md text-primary">{b.title}</h2>
-              <p class="font-body-md text-body-md text-on-surface-variant italic">{b.tagline}</p>
-              <div class="flex items-center gap-sm pt-xs">
-                <span class="font-label-sm text-label-sm text-secondary">Heat</span>
-                <span class="text-primary tracking-widest" aria-label={`Heat level ${b.heat} of 5`}>
-                  {"★".repeat(b.heat)}<span class="opacity-30">{"★".repeat(5 - b.heat)}</span>
-                </span>
+  <!-- Series sections -->
+  {seriesEntries.map(([slug, series]) => (
+    <section class="py-xl border-b border-outline-variant/20">
+      <div class="max-w-container-max mx-auto px-md">
+        <header class="mb-lg space-y-xs">
+          <div class="flex items-center gap-sm flex-wrap">
+            <h2 class="font-headline-lg text-headline-lg text-primary">{series.name}</h2>
+            <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">{series.books.length} {series.books.length === 1 ? "book" : "books"}</span>
+          </div>
+          {series.subtitle ? (
+            <p class="font-body-md text-body-md italic text-on-surface-variant">{series.subtitle}</p>
+          ) : null}
+        </header>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-md">
+          {series.books.map((b) => (
+            <article class="group">
+              <div class="aspect-[2/3] overflow-hidden bg-surface-container-low rounded-lg shadow-sm border border-outline-variant/20 group-hover:shadow-lg transition-shadow">
+                {b.cover ? (
+                  <img
+                    src={`${base}/${b.cover}`}
+                    alt={`Cover of ${b.title}`}
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-secondary-fixed via-surface-container-low to-secondary-fixed-dim">
+                    <span class="material-symbols-outlined text-primary opacity-30" style="font-size: 48px;">auto_stories</span>
+                  </div>
+                )}
               </div>
-              <div class="flex flex-wrap gap-xs pt-xs">
-                {b.tropes.map((t) => (
-                  <span class="bg-secondary-container/50 text-secondary px-sm py-xs rounded-full font-label-sm text-label-sm">{t}</span>
-                ))}
+              <div class="mt-sm space-y-xs">
+                {b.number ? (
+                  <p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Book {b.number}</p>
+                ) : null}
+                <h3 class="font-headline-md text-base font-semibold text-on-surface leading-tight">{b.title}</h3>
+                {b.subtitle ? (
+                  <p class="font-body-md text-xs italic text-on-surface-variant">{b.subtitle}</p>
+                ) : null}
+                <div class="flex items-center gap-xs flex-wrap pt-xs">
+                  {b.status === "preorder" ? (
+                    <span class="bg-secondary-container text-on-secondary-container px-xs py-xs rounded-full font-label-sm text-[10px] uppercase tracking-widest">Pre-order</span>
+                  ) : (
+                    <span class="bg-primary/10 text-primary px-xs py-xs rounded-full font-label-sm text-[10px] uppercase tracking-widest">Available</span>
+                  )}
+                  {b.release_date ? (
+                    <span class="font-label-sm text-[10px] text-on-surface-variant">{fmtDate(b.release_date)}</span>
+                  ) : null}
+                </div>
               </div>
-            </div>
-          </article>
-        ))}
+            </article>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  ))}
 
-  <!-- More Coming -->
-  <section class="py-xl bg-surface-container-low">
+  <!-- Newsletter CTA -->
+  <section class="py-xl bg-primary text-on-primary">
     <div class="max-w-container-max mx-auto px-md text-center space-y-sm">
-      <h2 class="font-headline-lg text-headline-lg text-primary">More on the way</h2>
-      <p class="font-body-md text-body-md text-on-surface-variant max-w-xl mx-auto">
-        New series in the works, including a closed-door women's-fiction romance and a sports-romance ensemble. Subscribers get the cover reveals first.
-      </p>
-      <a href={`${base}/members`} class="inline-block mt-md bg-primary text-on-primary px-lg py-md rounded-lg font-label-sm text-label-sm uppercase tracking-widest hover:opacity-90 transition-all shadow-md">
+      <h2 class="font-headline-lg text-headline-lg">Get the bonus story</h2>
+      <p class="font-body-md text-body-md opacity-90 max-w-xl mx-auto">Subscribe for exclusive sneak peeks, deleted scenes, and a free Pelican Cove novella.</p>
+      <a href={`${base}/members`} class="inline-block mt-sm bg-secondary-fixed text-on-secondary-fixed px-lg py-md rounded-lg font-label-sm text-label-sm uppercase tracking-widest hover:bg-secondary-fixed-dim transition-all">
         Join the Reader List
       </a>
     </div>

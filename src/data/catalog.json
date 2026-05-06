@@ -1,0 +1,373 @@
+{
+  "display_name": "Alexi Hart",
+  "tagline": "Contemporary romance, soft and sharp.",
+  "series": {
+    "the-pelican-cove-series": {
+      "name": "The Pelican Cove Series",
+      "subtitle": "Small town. Scorching heat. Absolutely no chill.",
+      "books": [
+        {
+          "number": 1,
+          "title": "The Worst Idea Yet",
+          "status": "live",
+          "release_date": "2026-04-14",
+          "tropes": [
+            "Enemies to Lovers",
+            "Grumpy/Sunshine",
+            "Forced Proximity"
+          ],
+          "cover": "covers/the-worst-idea-yet.jpg"
+        },
+        {
+          "number": 2,
+          "title": "Pretend You Love Me",
+          "status": "live",
+          "release_date": "2026-04-14",
+          "tropes": [
+            "Fake Dating",
+            "Wedding Weekend",
+            "Small Town Scandal"
+          ],
+          "cover": "covers/pretend-you-love-me.jpg"
+        },
+        {
+          "number": 3,
+          "title": "The Wrong Brother",
+          "status": "live",
+          "release_date": "2026-04-14",
+          "tropes": [
+            "Brother's Best Friend",
+            "Forbidden",
+            "Slow Burn"
+          ],
+          "cover": "covers/the-wrong-brother.jpg"
+        },
+        {
+          "number": 4,
+          "title": "One More Chance to Ruin This",
+          "status": "live",
+          "release_date": "2026-04-14",
+          "tropes": [
+            "Second Chance",
+            "Exes with History",
+            "Forced Proximity"
+          ],
+          "cover": "covers/one-more-chance-to-ruin-this.jpg"
+        },
+        {
+          "number": 5,
+          "title": "The Last Bad Decision",
+          "status": "preorder",
+          "release_date": "2026-05-11",
+          "tropes": [
+            "Age Gap",
+            "Slow Burn",
+            "Forbidden by Self"
+          ],
+          "cover": "covers/the-last-bad-decision.jpg"
+        }
+      ]
+    },
+    "the-halsted-heirs": {
+      "name": "The Halsted Heirs",
+      "books": [
+        {
+          "title": "Anchor Point",
+          "status": "preorder",
+          "release_date": "2026-05-08"
+        },
+        {
+          "title": "Vineyard Heat",
+          "status": "preorder",
+          "release_date": "2026-05-12"
+        },
+        {
+          "title": "The Closing Bell",
+          "status": "preorder",
+          "release_date": "2026-05-19"
+        },
+        {
+          "title": "The Halsted Knot",
+          "subtitle": "Series Finale",
+          "status": "preorder",
+          "release_date": "2026-05-26"
+        }
+      ]
+    },
+    "the-crew": {
+      "name": "The Crew",
+      "books": [
+        {
+          "title": "Hold the Line",
+          "status": "live",
+          "release_date": "2026-04-27",
+          "cover": "covers/hold-the-line.jpg"
+        },
+        {
+          "title": "On Paper",
+          "status": "live",
+          "release_date": "2026-04-27",
+          "cover": "covers/on-paper.jpg"
+        },
+        {
+          "title": "Last Pour",
+          "status": "preorder",
+          "release_date": "2026-05-12",
+          "cover": "covers/last-pour.jpg"
+        },
+        {
+          "title": "Two Years Sober",
+          "status": "preorder",
+          "release_date": "2026-05-19",
+          "cover": "covers/two-years-sober.jpg"
+        },
+        {
+          "title": "Layover",
+          "status": "preorder",
+          "release_date": "2026-05-26",
+          "cover": "covers/layover.jpg"
+        },
+        {
+          "title": "House Rules",
+          "status": "preorder",
+          "release_date": "2026-06-02",
+          "cover": "covers/house-rules.jpg"
+        }
+      ]
+    },
+    "all-out-hearts": {
+      "name": "All Out Hearts",
+      "books": [
+        {
+          "title": "Read the Signs",
+          "status": "live",
+          "release_date": "2026-04-05",
+          "cover": "covers/read-the-signs.jpg"
+        },
+        {
+          "title": "Aces After Love",
+          "status": "live",
+          "release_date": "2026-03-19",
+          "cover": "covers/aces-after-love.jpg"
+        },
+        {
+          "title": "The Captain's Play",
+          "status": "live",
+          "release_date": "2026-03-10",
+          "cover": "covers/the-captains-play.jpg"
+        },
+        {
+          "title": "Fourth Down Desire",
+          "status": "live",
+          "release_date": "2026-03-10",
+          "cover": "covers/fourth-down-desire.jpg"
+        },
+        {
+          "title": "Checkered Flag Lies",
+          "status": "live",
+          "release_date": "2026-03-10",
+          "cover": "covers/checkered-flag-lies.jpg"
+        }
+      ]
+    },
+    "truth-and-temptation-mysteries": {
+      "name": "Truth and Temptation Mysteries",
+      "books": [
+        {
+          "title": "The Vanishing Ledger",
+          "subtitle": "Truth is the First Casualty",
+          "status": "live",
+          "release_date": "2026-01-20",
+          "cover": "covers/the-vanishing-ledger.jpg"
+        },
+        {
+          "title": "The Hollow Witness",
+          "subtitle": "Proof Doesn't Stay Put",
+          "status": "live",
+          "release_date": "2026-01-21",
+          "cover": "covers/the-hollow-witness.jpg"
+        },
+        {
+          "title": "The Lost Daughter",
+          "subtitle": "A Child Taken Quietly",
+          "status": "live",
+          "release_date": "2026-01-22",
+          "cover": "covers/the-lost-daughter.jpg"
+        },
+        {
+          "title": "The Orchard Grave",
+          "subtitle": "When Trust Becomes Evidence",
+          "status": "live",
+          "release_date": "2026-01-22",
+          "cover": "covers/the-orchard-grave.jpg"
+        },
+        {
+          "title": "The Borrowed Name",
+          "subtitle": "Trust Can Kill",
+          "status": "live",
+          "release_date": "2026-02-04",
+          "cover": "covers/the-borrowed-name.jpg"
+        },
+        {
+          "title": "The Glass Alibi",
+          "subtitle": "A Case That Wants More",
+          "status": "live",
+          "release_date": "2026-01-31",
+          "cover": "covers/the-glass-alibi.jpg"
+        },
+        {
+          "title": "The Packet in Portland",
+          "subtitle": "Where Truth Gets Dangerous",
+          "status": "live",
+          "release_date": "2026-01-19",
+          "cover": "covers/the-packet-in-portland.jpg"
+        },
+        {
+          "title": "The Quiet Confession",
+          "subtitle": "Hidden Motives and Fatal Lies",
+          "status": "live",
+          "release_date": "2026-03-04",
+          "cover": "covers/the-quiet-confession.jpg"
+        }
+      ]
+    },
+    "second-bloom-series": {
+      "name": "Second Bloom Series",
+      "books": [
+        {
+          "title": "What Grows After Goodbye",
+          "status": "live",
+          "release_date": "2026-01-06",
+          "cover": "covers/what-grows-after-goodbye.jpg"
+        },
+        {
+          "title": "What Sweetens After a Fall",
+          "status": "live",
+          "release_date": "2026-01-17"
+        },
+        {
+          "title": "What Blooms After Breaking",
+          "status": "live",
+          "release_date": "2026-01-15",
+          "cover": "covers/what-blooms-after-breaking.jpg"
+        },
+        {
+          "title": "What Holds After the House Shakes",
+          "status": "live",
+          "release_date": "2026-01-22",
+          "cover": "covers/what-holds-after-the-house-shakes.jpg"
+        },
+        {
+          "title": "What Returns After Burnout",
+          "status": "live",
+          "release_date": "2026-01-27",
+          "cover": "covers/what-returns-after-burnout.jpg"
+        },
+        {
+          "title": "What Changes After the Last Name",
+          "status": "live",
+          "release_date": "2026-01-30",
+          "cover": "covers/what-changes-after-the-last-name.jpg"
+        },
+        {
+          "title": "What Sings After Silence",
+          "status": "live",
+          "release_date": "2026-02-18",
+          "cover": "covers/what-sings-after-silence.jpg"
+        },
+        {
+          "title": "What Grows in the Quiet",
+          "status": "live",
+          "release_date": "2026-02-06",
+          "cover": "covers/what-grows-in-the-quiet.jpg"
+        }
+      ]
+    },
+    "unsworn-world": {
+      "name": "Unsworn World",
+      "books": [
+        {
+          "title": "The Thornwood Witch",
+          "status": "live",
+          "release_date": "2026-02-01",
+          "cover": "covers/the-thornwood-witch.jpg"
+        },
+        {
+          "title": "The Hollow Hunter",
+          "status": "live",
+          "release_date": "2026-02-11",
+          "cover": "covers/the-hollow-hunter.jpg"
+        },
+        {
+          "title": "The Radiant Saint's Daughter",
+          "status": "live",
+          "release_date": "2026-01-29",
+          "cover": "covers/the-radiant-saints-daughter.jpg"
+        },
+        {
+          "title": "The Unhallowed Captain",
+          "status": "live",
+          "release_date": "2026-01-07",
+          "cover": "covers/the-unhallowed-captain.jpg"
+        },
+        {
+          "title": "The Minister in Velvet",
+          "status": "live",
+          "release_date": "2026-01-15",
+          "cover": "covers/the-minister-in-velvet.jpg"
+        },
+        {
+          "title": "The Unsworn Heir",
+          "status": "live",
+          "release_date": "2026-01-04",
+          "cover": "covers/the-unsworn-heir.jpg"
+        }
+      ]
+    },
+    "the-quiet-hollow-duet": {
+      "name": "The Quiet Hollow Duet",
+      "books": [
+        {
+          "title": "The Wolf's Vow",
+          "subtitle": "Through His Eyes",
+          "status": "live",
+          "release_date": "2026-02-10"
+        },
+        {
+          "title": "The Wolf's Promise",
+          "subtitle": "Through Her Eyes",
+          "status": "live",
+          "release_date": "2026-02-10"
+        }
+      ]
+    },
+    "old-world-new-blood": {
+      "name": "Old World, New Blood",
+      "books": [
+        {
+          "title": "The Don's Code",
+          "status": "live",
+          "release_date": "2026-01-12",
+          "cover": "covers/the-dons-code.jpg"
+        }
+      ]
+    },
+    "standalones": {
+      "name": "Standalones",
+      "books": [
+        {
+          "title": "Consent to Continue",
+          "status": "live",
+          "release_date": "2026-01-07",
+          "cover": "covers/consent-to-continue.jpg"
+        },
+        {
+          "title": "Austin After Hours",
+          "status": "live",
+          "release_date": "2026-01-10",
+          "cover": "covers/austin-after-hours.jpg"
+        }
+      ]
+    }
+  }
+}
