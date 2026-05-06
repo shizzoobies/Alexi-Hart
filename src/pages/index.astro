@@ -3,7 +3,7 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
-<BaseLayout title="Alexi Hart">
+<BaseLayout title="Alexi Hart | Contemporary Romance">
   <!-- Hero -->
   <section class="relative min-h-[640px] flex items-center overflow-hidden py-xl">
     <div class="absolute inset-0 z-0">
@@ -11,26 +11,26 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     </div>
     <div class="relative z-10 w-full max-w-container-max mx-auto px-md flex flex-col md:flex-row items-center gap-xl">
       <div class="flex-1 space-y-md">
-        <span class="inline-block bg-secondary-container text-on-secondary-container px-sm py-xs rounded-full font-label-sm text-label-sm uppercase tracking-wider">New Arrival</span>
-        <h1 class="font-headline-xl text-headline-xl text-primary max-w-lg">Love Notes in the Margin</h1>
-        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
-          Sometimes the most beautiful stories are the ones written between the lines. A poignant contemporary romance about second chances and forgotten letters.
+        <span class="inline-block bg-secondary-container text-on-secondary-container px-sm py-xs rounded-full font-label-sm text-label-sm uppercase tracking-wider">New Series</span>
+        <h1 class="font-headline-xl text-headline-xl text-primary max-w-lg">The Pelican Cove Series</h1>
+        <p class="font-body-lg text-body-lg italic text-on-surface-variant max-w-md">Small town. Scorching heat. Absolutely no chill.</p>
+        <p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+          Five standalone rom-coms set in one Florida Gulf-coast town. Funny, filthy, and full of heart. Start with The Worst Idea Yet.
         </p>
-        <div class="flex gap-md pt-base">
-          <a href={`${base}/books`} class="bg-primary text-on-primary px-lg py-md rounded-lg font-label-sm text-label-sm hover:opacity-90 transition-all shadow-md">Order Now</a>
-          <a href={`${base}/blog`} class="border-2 border-primary text-primary px-lg py-md rounded-lg font-label-sm text-label-sm hover:bg-primary/5 transition-all">Read Chapter One</a>
+        <div class="flex gap-md pt-base flex-wrap">
+          <a href={`${base}/books`} class="bg-primary text-on-primary px-lg py-md rounded-lg font-label-sm text-label-sm uppercase tracking-widest hover:opacity-90 transition-all shadow-md">Read the Series</a>
+          <a href={`${base}/members`} class="border-2 border-primary text-primary px-lg py-md rounded-lg font-label-sm text-label-sm uppercase tracking-widest hover:bg-primary/5 transition-all">Get Bonus Story</a>
         </div>
       </div>
       <div class="flex-1 flex justify-center">
-        <div class="relative group">
-          <div class="absolute -inset-4 bg-secondary-fixed/40 rounded-xl blur-2xl group-hover:bg-secondary-fixed/60 transition-all"></div>
-          <div class="relative w-[280px] h-[420px] md:w-[320px] md:h-[480px] rounded-lg shadow-2xl border border-outline-variant/30 bg-gradient-to-br from-secondary-fixed-dim via-primary-container to-primary flex items-center justify-center group-hover:-translate-y-2 transition-transform duration-500">
-            <div class="text-center px-md">
-              <p class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary opacity-70 mb-sm">Alexi Hart</p>
-              <h2 class="font-headline-lg text-headline-lg text-on-primary italic">Love Notes in the Margin</h2>
-            </div>
-          </div>
-        </div>
+        <a href={`${base}/books`} class="relative group">
+          <div class="absolute -inset-4 bg-secondary-fixed/50 rounded-xl blur-2xl group-hover:bg-secondary-fixed/70 transition-all"></div>
+          <img
+            src={`${base}/covers/the-worst-idea-yet.png`}
+            alt="Cover of The Worst Idea Yet by Alexi Hart"
+            class="relative w-[280px] md:w-[320px] aspect-[2/3] object-cover rounded-lg shadow-2xl border border-outline-variant/30 group-hover:-translate-y-2 transition-transform duration-500"
+          />
+        </a>
       </div>
     </div>
   </section>
@@ -44,32 +44,32 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
             <h3 class="font-headline-md text-headline-md text-primary mb-sm">What Readers Are Saying</h3>
             <div class="space-y-lg italic">
               <blockquote class="border-l-4 border-secondary-container pl-md py-base">
-                <p class="font-body-md text-body-md text-on-surface-variant">"Alexi Hart has a way of weaving emotions into every page. I couldn't put it down."</p>
+                <p class="font-body-md text-body-md text-on-surface-variant">"Alexi Hart writes the kind of small-town romance that makes you want to move there immediately."</p>
                 <footer class="font-label-sm text-label-sm text-secondary mt-sm not-italic">Literary Loft Reviews</footer>
               </blockquote>
               <blockquote class="border-l-4 border-secondary-container pl-md py-base">
-                <p class="font-body-md text-body-md text-on-surface-variant">"A masterpiece of modern romance. Tender, witty, and profoundly moving."</p>
+                <p class="font-body-md text-body-md text-on-surface-variant">"Funny, filthy, and full of heart. I devoured the whole series in a weekend."</p>
                 <footer class="font-label-sm text-label-sm text-secondary mt-sm not-italic">Bookish Bliss</footer>
               </blockquote>
             </div>
           </div>
         </div>
         <div class="md:col-span-7 order-1 md:order-2 space-y-md">
-          <h2 class="font-headline-lg text-headline-lg text-primary">Discover the Heart of the Story</h2>
+          <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Series Opener</span>
+          <h2 class="font-headline-lg text-headline-lg text-primary">The Worst Idea Yet</h2>
+          <p class="font-body-lg text-body-lg italic text-on-surface-variant">She's been hired to save his bar. He'd rather let it burn than admit she's right.</p>
           <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-            When Clara finds a collection of old love letters tucked into the back of a library book, she never expected them to lead her to Julian, the reclusive architect who wrote them ten years ago. As they embark on a journey to find the letters' original recipient, they discover that their own story might just be the one worth writing.
+            When the Saltwater Bar and Grill's ten-year anniversary event threatens to be the thing that finally sinks the family business, Cole Calloway reluctantly agrees to hire an event planner. He expects someone competent and quiet. He gets Zoe Merritt: loud, brilliant, aggressively optimistic, and allergic to the word "no." She rearranges his supply closet on day one. He nearly has a stroke. By the end of the week, he can't stop watching her.
           </p>
           <div class="flex flex-wrap gap-sm pt-sm">
             <span class="bg-secondary-container/50 text-secondary px-sm py-xs rounded-full font-label-sm text-label-sm">Enemies to Lovers</span>
-            <span class="bg-secondary-container/50 text-secondary px-sm py-xs rounded-full font-label-sm text-label-sm">Found Family</span>
-            <span class="bg-secondary-container/50 text-secondary px-sm py-xs rounded-full font-label-sm text-label-sm">Slow Burn</span>
+            <span class="bg-secondary-container/50 text-secondary px-sm py-xs rounded-full font-label-sm text-label-sm">Grumpy/Sunshine</span>
+            <span class="bg-secondary-container/50 text-secondary px-sm py-xs rounded-full font-label-sm text-label-sm">Forced Proximity</span>
           </div>
           <div class="pt-lg flex items-center gap-md flex-wrap">
             <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Available At</span>
-            <div class="flex gap-md opacity-60 flex-wrap">
-              <span class="font-headline-md text-headline-md">Amazon</span>
-              <span class="font-headline-md text-headline-md">B&amp;N</span>
-              <span class="font-headline-md text-headline-md">Apple</span>
+            <div class="flex gap-md opacity-70 flex-wrap">
+              <a href="https://www.amazon.com/author/alexihartbooks" class="font-headline-md text-headline-md hover:text-primary transition-colors">Amazon</a>
             </div>
           </div>
         </div>
@@ -89,8 +89,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
         <div class="md:w-1/2 space-y-md">
           <h2 class="font-headline-lg text-headline-lg text-primary">A Note from Alexi</h2>
           <div class="space-y-sm font-body-md text-body-md text-on-surface-variant">
-            <p>Hello! I'm Alexi, and I believe that everyone deserves a happy ending, even if the road there is a little bumpy. I've been writing since I could hold a pen, but it wasn't until I moved to a small cottage that I truly found my voice.</p>
-            <p>When I'm not dreaming up new ways for my characters to fall in love, you can find me scouring antique bookstores, nursing a large cup of Earl Grey, or trying (and failing) to bake the perfect macaron.</p>
+            <p>Hello! I'm Alexi, and I write the kind of romance I'd want to read on a beach: warm, witty, full of heart, and unafraid of the steamy parts. The Pelican Cove Series is set in a fictional Florida town where everybody is too invested in everybody else's business, and that is a feature, not a bug.</p>
+            <p>When I'm not writing, you can find me chasing the perfect grouper sandwich, scouring antique bookstores, or trying (and failing) to bake the perfect macaron.</p>
           </div>
           <a href={`${base}/about`} class="inline-flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all">
             Read more <span class="material-symbols-outlined">arrow_forward</span>
@@ -106,7 +106,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
       <div class="max-w-2xl mx-auto space-y-md">
         <span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">mail</span>
         <h2 class="font-headline-lg text-headline-lg">Join the Book Club</h2>
-        <p class="font-body-md text-body-md opacity-90">Sign up for my newsletter for exclusive sneak peeks, deleted scenes, and updates on new releases.</p>
+        <p class="font-body-md text-body-md opacity-90">Sign up for sneak peeks, deleted scenes, and the bonus Pelican Cove novella.</p>
         <form class="flex flex-col sm:flex-row gap-sm pt-md" action={`${base}/members`} method="get">
           <input class="flex-grow px-md py-sm rounded-lg border-none text-on-surface focus:ring-2 focus:ring-secondary-fixed" placeholder="Enter your email address" type="email" name="email" />
           <button class="bg-secondary-fixed text-on-secondary-fixed px-lg py-sm rounded-lg font-label-sm text-label-sm hover:bg-secondary-fixed-dim transition-all" type="submit">Subscribe</button>
@@ -116,21 +116,27 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     </div>
   </section>
 
-  <!-- Social Feed Teaser -->
+  <!-- Series Strip -->
   <section class="py-xl overflow-hidden">
     <div class="max-w-container-max mx-auto px-md">
       <div class="flex justify-between items-end mb-lg flex-wrap gap-md">
         <div>
-          <h2 class="font-headline-md text-headline-md text-primary">The Writer's Life</h2>
-          <p class="font-body-md text-body-md text-on-surface-variant">Follow @AlexiHart for daily inspiration</p>
+          <h2 class="font-headline-md text-headline-md text-primary">The Pelican Cove Series</h2>
+          <p class="font-body-md text-body-md text-on-surface-variant">All five books, in reading order.</p>
         </div>
-        <a class="text-primary font-label-sm text-label-sm border-b border-primary pb-xs hover:opacity-70 transition-all" href="#">Follow on Instagram</a>
+        <a class="text-primary font-label-sm text-label-sm border-b border-primary pb-xs hover:opacity-70 transition-all" href={`${base}/books`}>See all</a>
       </div>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-md">
-        {[1, 2, 3, 4].map((i) => (
-          <div class="aspect-square rounded-lg bg-gradient-to-br from-secondary-fixed via-surface-container-low to-secondary-fixed-dim flex items-center justify-center">
-            <span class="material-symbols-outlined text-primary opacity-30" style="font-size: 48px;">photo_camera</span>
-          </div>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-md">
+        {[
+          { slug: "the-worst-idea-yet", title: "The Worst Idea Yet" },
+          { slug: "pretend-you-love-me", title: "Pretend You Love Me" },
+          { slug: "the-wrong-brother", title: "The Wrong Brother" },
+          { slug: "one-more-chance-to-ruin-this", title: "One More Chance to Ruin This" },
+          { slug: "the-last-bad-decision", title: "The Last Bad Decision" }
+        ].map((b) => (
+          <a href={`${base}/books`} class="aspect-[2/3] rounded-lg overflow-hidden border border-outline-variant/30 group hover:shadow-lg transition-all">
+            <img src={`${base}/covers/${b.slug}.png`} alt={`Cover of ${b.title}`} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          </a>
         ))}
       </div>
     </div>
