@@ -82,9 +82,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     <div class="max-w-container-max mx-auto px-md">
       <div class="flex flex-col md:flex-row gap-xl items-center">
         <div class="md:w-1/2">
-          <div class="rounded-xl shadow-lg border-4 border-surface w-full aspect-[4/5] bg-gradient-to-br from-secondary-fixed via-surface-container-low to-secondary-fixed-dim flex items-center justify-center">
-            <span class="material-symbols-outlined text-primary opacity-30" style="font-size: 96px;">local_florist</span>
-          </div>
+          <img
+            src={`${base}/images/alexi-hart-cafe-writing.png`}
+            alt="Alexi Hart writing in a cafe"
+            class="rounded-xl shadow-lg border-4 border-surface w-full aspect-[4/5] object-cover"
+          />
         </div>
         <div class="md:w-1/2 space-y-md">
           <h2 class="font-headline-lg text-headline-lg text-primary">A Note from Alexi</h2>
