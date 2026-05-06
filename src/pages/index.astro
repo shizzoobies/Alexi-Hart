@@ -1,0 +1,16 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Alexi Hart">
+  <h1 class="text-4xl">Welcome.</h1>
+  <p class="mt-4 text-lg">
+    Contemporary romance, soft and sharp. New books, behind the scenes notes,
+    and bonus content for readers on the list.
+  </p>
+  <p class="mt-6">
+    <a href={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/members`} class="text-accent underline">
+      Join the reader list
+    </a>
+  </p>
+</BaseLayout>

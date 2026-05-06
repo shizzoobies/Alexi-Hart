@@ -1,0 +1,21 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => (b.data.publishedAt?.valueOf() ?? 0) - (a.data.publishedAt?.valueOf() ?? 0)
+);
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+
+<BaseLayout title="Blog | Alexi Hart">
+  <h1 class="text-3xl">Blog</h1>
+  <ul class="mt-6 space-y-4">
+    {posts.map((p) => (
+      <li>
+        <a href={`${base}/blog/${p.slug}`} class="text-accent underline">{p.data.title}</a>
+        {p.data.excerpt ? <p class="text-sm text-muted">{p.data.excerpt}</p> : null}
+      </li>
+    ))}
+  </ul>
+</BaseLayout>

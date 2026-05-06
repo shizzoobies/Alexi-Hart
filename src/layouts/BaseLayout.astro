@@ -1,0 +1,30 @@
+---
+import "~/styles/global.css";
+import Nav from "~/components/Nav.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Alexi Hart, contemporary romance" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body class="min-h-screen">
+    <Nav />
+    <main class="max-w-3xl mx-auto px-6 py-12">
+      <slot />
+    </main>
+    <footer class="max-w-3xl mx-auto px-6 py-8 text-sm text-muted">
+      &copy; {new Date().getFullYear()} Alexi Hart
+    </footer>
+  </body>
+</html>

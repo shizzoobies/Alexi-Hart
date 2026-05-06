@@ -1,0 +1,12 @@
+/* Alexi Hart design tokens.
+   Placeholder palette and fonts. Swap once Alex provides branding direction. */
+
+:root {
+  --color-page: 255 248 244;
+  --color-ink: 33 25 30;
+  --color-accent: 196 96 121;
+  --color-muted: 110 96 102;
+
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+}
