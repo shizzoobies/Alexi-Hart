@@ -3,8 +3,10 @@ import mdx from "@astrojs/mdx";
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 
-const site = process.env.PUBLIC_SITE_URL ?? "https://shizzoobies.github.io";
-const base = process.env.PUBLIC_BASE_PATH ?? "/Alexi-Hart";
+// Deployed via Cloudflare Pages, served at site root.
+// Override PUBLIC_SITE_URL in Cloudflare env vars once a custom domain is wired.
+const site = process.env.PUBLIC_SITE_URL ?? "https://alexi-hart.pages.dev";
+const base = process.env.PUBLIC_BASE_PATH ?? "";
 
 export default defineConfig({
   site,
