@@ -5,7 +5,7 @@ import sitemap from "@astrojs/sitemap";
 
 // Deployed via Cloudflare Pages, served at site root.
 // Override PUBLIC_SITE_URL in Cloudflare env vars once a custom domain is wired.
-const site = process.env.PUBLIC_SITE_URL ?? "https://alexi-hart.pages.dev";
+const site = process.env.PUBLIC_SITE_URL ?? "https://alexihart.com";
 const base = process.env.PUBLIC_BASE_PATH ?? "";
 
 export default defineConfig({

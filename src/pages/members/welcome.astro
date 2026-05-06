@@ -1,0 +1,68 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+const apiUrl = import.meta.env.PUBLIC_API_URL ?? "http://localhost:4000";
+---
+
+<BaseLayout title="Welcome | Alexi Hart">
+  <section class="py-xl">
+    <div class="max-w-container-max mx-auto px-md text-center space-y-md">
+      <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">You're In</span>
+
+      <div id="loading">
+        <h1 class="font-headline-xl text-headline-xl text-primary">Confirming…</h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant">One moment while we unlock your bonus story.</p>
+      </div>
+
+      <div id="success" class="hidden space-y-md">
+        <h1 class="font-headline-xl text-headline-xl text-primary">Welcome to the reader list.</h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Thank you for confirming. Your bonus novella is waiting below, and the next note from my desk will land in your inbox soon.</p>
+        <a id="magnet-link" href="#" class="inline-block bg-primary text-on-primary px-lg py-md rounded-lg font-label-sm text-label-sm uppercase tracking-widest hover:opacity-90 transition-all shadow-md">Download the Bonus Novella</a>
+      </div>
+
+      <div id="failure" class="hidden">
+        <h1 class="font-headline-xl text-headline-xl text-primary">Something went sideways.</h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Your confirmation link may have expired. Try signing up again and we'll send a fresh one.</p>
+        <p class="pt-md"><a href="../" class="text-primary underline">Back to signup</a></p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script define:vars={{ apiUrl }}>
+  const params = new URLSearchParams(window.location.search);
+  const token = params.get("token");
+  const loading = document.getElementById("loading");
+  const success = document.getElementById("success");
+  const failure = document.getElementById("failure");
+  const magnetLink = document.getElementById("magnet-link");
+
+  function show(el) {
+    [loading, success, failure].forEach((n) => n?.classList.add("hidden"));
+    el?.classList.remove("hidden");
+  }
+
+  if (!token) {
+    show(failure);
+  } else {
+    fetch(`${apiUrl}/confirm`, {
+      method: "POST",
+      credentials: "include",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ token })
+    })
+      .then(async (r) => {
+        if (!r.ok) throw new Error(`confirm_${r.status}`);
+        const data = await r.json();
+        if (data.magnet_url) {
+          magnetLink.href = data.magnet_url;
+        } else {
+          magnetLink.classList.add("opacity-50", "pointer-events-none");
+          magnetLink.textContent = "Bonus Novella (coming soon)";
+        }
+        // Clear the token from the URL once consumed.
+        window.history.replaceState({}, "", window.location.pathname);
+        show(success);
+      })
+      .catch(() => show(failure));
+  }
+</script>

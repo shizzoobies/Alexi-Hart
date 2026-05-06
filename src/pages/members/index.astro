@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
+const apiUrl = import.meta.env.PUBLIC_API_URL ?? "http://localhost:4000";
 ---
 
 <BaseLayout title="Members | Alexi Hart">
@@ -10,15 +11,27 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
         <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Free for Subscribers</span>
         <h1 class="font-headline-xl text-headline-xl text-primary">Get the bonus story that started it all.</h1>
         <p class="font-body-lg text-body-lg text-on-surface-variant">
-          Join the reader list to unlock an exclusive prequel novella, plus deleted scenes, sneak peeks, and a monthly note from my desk. No spam, just love letters.
+          Join the reader list to unlock an exclusive Pelican Cove novella, plus deleted scenes, sneak peeks, and a monthly note from my desk. No spam, just love letters.
         </p>
-        <form class="flex flex-col gap-sm mt-md max-w-md">
-          <input class="w-full px-md py-md rounded-lg bg-surface-container-lowest border border-outline-variant text-on-surface focus:border-primary focus:ring-2 focus:ring-primary/20 placeholder:text-on-surface-variant/60 transition-all" placeholder="Your name" type="text" />
-          <input class="w-full px-md py-md rounded-lg bg-surface-container-lowest border border-outline-variant text-on-surface focus:border-primary focus:ring-2 focus:ring-primary/20 placeholder:text-on-surface-variant/60 transition-all" placeholder="Email address" type="email" />
-          <button class="mt-sm bg-primary text-on-primary py-md px-lg rounded-lg font-label-sm text-label-sm uppercase tracking-widest hover:opacity-90 transition-all shadow-md" type="submit">
-            Claim My Free Story
-          </button>
-        </form>
+
+        <div id="signup-state" class="space-y-md">
+          <form id="signup-form" class="flex flex-col gap-sm mt-md max-w-md" novalidate>
+            <input id="email" name="email" type="email" required autocomplete="email" placeholder="Email address" class="w-full px-md py-md rounded-lg bg-surface-container-lowest border border-outline-variant text-on-surface focus:border-primary focus:ring-2 focus:ring-primary/20 placeholder:text-on-surface-variant/60 transition-all" />
+            <button id="submit" type="submit" class="mt-sm bg-primary text-on-primary py-md px-lg rounded-lg font-label-sm text-label-sm uppercase tracking-widest hover:opacity-90 transition-all shadow-md disabled:opacity-50">
+              Claim My Free Story
+            </button>
+          </form>
+          <p id="signup-error" class="text-error text-sm hidden"></p>
+        </div>
+
+        <div id="signup-sent" class="hidden p-md rounded-lg bg-secondary-container/40 border border-outline-variant/30 max-w-md">
+          <p class="font-body-md text-on-surface">Check your inbox. Click the link in the email to confirm and unlock the bonus story.</p>
+        </div>
+
+        <div id="already-authed" class="hidden p-md rounded-lg bg-primary/10 border border-primary/30 max-w-md">
+          <p class="font-body-md text-on-surface">Welcome back, <span id="authed-email" class="font-semibold"></span>. You're already on the list.</p>
+        </div>
+
         <div class="flex items-center gap-sm opacity-60 pt-sm">
           <span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1; font-size: 18px;">verified_user</span>
           <span class="font-label-sm text-label-sm">Unsubscribe any time.</span>
@@ -62,3 +75,46 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
     </div>
   </section>
 </BaseLayout>
+
+<script define:vars={{ apiUrl }}>
+  const form = document.getElementById("signup-form");
+  const stateEl = document.getElementById("signup-state");
+  const sentEl = document.getElementById("signup-sent");
+  const authedEl = document.getElementById("already-authed");
+  const authedEmail = document.getElementById("authed-email");
+  const errorEl = document.getElementById("signup-error");
+  const submitBtn = document.getElementById("submit");
+
+  fetch(`${apiUrl}/members/access-check`, { credentials: "include" })
+    .then((r) => (r.ok ? r.json() : null))
+    .then((data) => {
+      if (data?.ok) {
+        stateEl.classList.add("hidden");
+        authedEmail.textContent = data.email;
+        authedEl.classList.remove("hidden");
+      }
+    })
+    .catch(() => {});
+
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    errorEl.classList.add("hidden");
+    submitBtn.disabled = true;
+    const email = document.getElementById("email").value.trim();
+    try {
+      const res = await fetch(`${apiUrl}/signup`, {
+        method: "POST",
+        credentials: "include",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ email, pen: "alexi-hart" })
+      });
+      if (!res.ok) throw new Error(`signup_${res.status}`);
+      stateEl.classList.add("hidden");
+      sentEl.classList.remove("hidden");
+    } catch (err) {
+      errorEl.textContent = "Something went wrong. Please try again.";
+      errorEl.classList.remove("hidden");
+      submitBtn.disabled = false;
+    }
+  });
+</script>
